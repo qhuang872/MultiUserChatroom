@@ -25,6 +25,9 @@
 			socket.on("updateMessage",function(dataFromSocket){
 				$("div").append(`<p>${dataFromSocket.user}: ${dataFromSocket.message}</p>`);
 			})
+			socket.on("someoneJustQuit",function(dataFromSocket){
+				$("div").append(`<p>${dataFromSocket.user} just leaves the chatroom.</p>`);
+			})
 		})
 	</script>
 </head>

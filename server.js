@@ -24,4 +24,8 @@ io.sockets.on("connection",function(socket){
 	socket.on("sendMessage",function(dataFromSocket){
 		io.emit("updateMessage",{"user":usersGroup[socket.id],"message":dataFromSocket.message});
 	})
+	socket.on("disconnect",function(){
+		console.log("someone just closed the page.");
+		io.emit("someoneJustQuit",{"user":usersGroup[socket.id]});
+	})
 })
